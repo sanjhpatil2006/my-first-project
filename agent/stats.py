@@ -17,9 +17,16 @@ def median(values):
     """Middle value, rounded to two places."""
     if not values:
         raise ValueError("median of an empty list")
-    ordered = sorted(values)
-    return round(ordered[len(ordered) // 2], 2)
 
+    ordered = sorted(values)
+    n = len(ordered)
+
+    if n % 2 == 0:
+        middle = (ordered[n // 2 - 1] + ordered[n // 2]) / 2
+    else:
+        middle = ordered[n // 2]
+
+    return round(middle, 2)
 
 def spread(values):
     """Difference between the largest and smallest value."""
